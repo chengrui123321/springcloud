@@ -5,3 +5,8 @@ eureka:
     register-with-eureka: false      #不注册自己
     service-url:                     #注册中心集群地址
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+# 开启基于Feign的服务降级
+feign:
+  hystrix:
+    enabled: true
