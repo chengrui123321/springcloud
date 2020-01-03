@@ -19,6 +19,7 @@
         <module>springcloud-consumer-dept-feign</module>
         <module>springcloud-provider-dept-hystrix-8001</module>
         <module>springcloud-consumer-hystrix-dashboard</module>
+        <module>springcloud-zuul-gateway-9527</module>
     </modules>
 
     <packaging>pom</packaging>

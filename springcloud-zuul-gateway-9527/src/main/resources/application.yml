@@ -1,0 +1,29 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+  instance:
+    instance-id: gateway9527
+    prefer-ip-address: true
+
+info:                                                       #服务提示信息
+  app.name: wb-springcloud
+  company.name: wb
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+
+zuul:
+  routes:                             #指定路径
+    mydept.serviceId: springcloud-dept
+    mydept.path: /mydept/**
+  ignored-services: springcloud-dept  #忽略原服务名，忽略多个使用*
+  prefix: /wb                         #前缀
