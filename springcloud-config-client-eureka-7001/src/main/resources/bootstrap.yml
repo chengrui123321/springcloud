@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      profile: dev
+      name: springcloud-config-eureka-client
+      label: master
+      uri: http://config3344.com:3344

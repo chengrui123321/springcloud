@@ -1,0 +1,81 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 8001 #端口
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml #mybatis配置文件
+  mapper-locations: classpath:mybatis/mapper/**/*.xml #mapper映射文件
+  type-aliases-package: com.wb.springcloud.entities #别名包
+
+spring:
+  profiles: dev
+  application:
+    name: springcloud-dept-config-client #应用名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///springcloud
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+      #defaultZone: http://localhost:7001/eureka             #eureka服务端注册地址
+
+  instance:
+    instance-id: springcloud-dept8001                       #服务名称
+    prefer-ip-address: true                                 #显示ip地址
+info:                                                       #服务提示信息
+  app.name: wb-springcloud
+  company.name: wb
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+---
+server:
+  port: 8001 #端口
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml #mybatis配置文件
+  mapper-locations: classpath:mybatis/mapper/**/*.xml #mapper映射文件
+  type-aliases-package: com.wb.springcloud.entities #别名包
+
+spring:
+  profiles: test
+  application:
+    name: springcloud-dept-config-client #应用名称
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///springcloud2
+    username: root
+    password: root
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+      #defaultZone: http://localhost:7001/eureka             #eureka服务端注册地址
+
+  instance:
+    instance-id: springcloud-dept8001                       #服务名称
+    prefer-ip-address: true                                 #显示ip地址
+info:                                                       #服务提示信息
+  app.name: wb-springcloud
+  company.name: wb
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
